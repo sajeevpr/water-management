@@ -23,10 +23,10 @@ public class AddGuestValidator implements Validator {
         //validate structure of ADD_GUESTS
         for (int i=1; i< inputCommands.size()-1;i++) {
             String command = inputCommands.get(i);
-            final String[] commandArray = command.split(" ");
+            final String[] commandArray = command.split(WaterBillConstants.SPACE);
             if ( commandArray.length != 2
                   || !commandArray[0].equals(WaterBillConstants.ADD_GUESTS)
-                  || !WaterManagementUtil.isNumeric(commandArray[1])) {
+                  || !WaterManagementUtil.isValidPositiveNumber(commandArray[1])) {
                 throw new ValidateException(WaterBillConstants.ADD_GUESTS+" structure is incorrect :"+command);
             }
         }

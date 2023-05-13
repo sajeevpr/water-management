@@ -22,4 +22,19 @@ class WaterManagementUtilTest {
     void testIsNumericNegative() {
         Assert.assertEquals(false, WaterManagementUtil.isNumeric("A"));
     }
+
+    @Test
+    void isValidPositiveNumber() {
+        Assert.assertEquals(true, WaterManagementUtil.isValidPositiveNumber("1.0"));
+    }
+
+    @Test
+    void isValidPositiveNumberInvalidInput() {
+        Assert.assertEquals(false, WaterManagementUtil.isValidPositiveNumber("A"));
+    }
+
+    @Test
+    void isValidPositiveNumberNegativeInput() {
+        Assert.assertEquals(false, WaterManagementUtil.isValidPositiveNumber("-1"));
+    }
 }

@@ -47,16 +47,16 @@ public class AllotWaterValidator implements Validator {
 
         //check for the structure of ALLOT_WATER
         final String command = inputCommands.get(0);
-        final String[] commandArray = command.split(" ");
+        final String[] commandArray = command.split(WaterBillConstants.SPACE);
         String ratio[] = null;
         if (commandArray.length == 3) {
-            ratio = commandArray[2].split(":");
+            ratio = commandArray[2].split(WaterBillConstants.COLON);
         }
         if (commandArray.length != 3
                 || !commandArray[0].equals(WaterBillConstants.ALLOT_WATER)
                 || !( commandArray[1].equals(TWO_BED) || commandArray[1].equals(THREE_BED))
                 || !(ratio != null && ratio.length == 2
-                && WaterManagementUtil.isNumeric(ratio[0]) && WaterManagementUtil.isNumeric(ratio[1]))
+                && WaterManagementUtil.isValidPositiveNumber(ratio[0]) && WaterManagementUtil.isValidPositiveNumber(ratio[1]))
         ) {
             throw new ValidateException(WaterBillConstants.ALLOT_WATER+" structure is incorrect :"+command);
         }

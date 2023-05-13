@@ -23,4 +23,14 @@ public final class WaterBillConstants {
      */
     public static final String BILL = "BILL";
 
+    /**
+     * SPACE constant
+     */
+    public static final String SPACE = " ";
+
+    /**
+     * COLON constant
+     */
+    public static final String COLON = ":";
+
 }
